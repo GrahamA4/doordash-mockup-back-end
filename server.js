@@ -7,6 +7,6 @@ app.listen(PORT, () => {
   console.log(`express Server listening on port ${PORT}`);
 });
 
-app.get('/test', (req, res) => {
+app.get('/', (req, res) => {
   res.send('test');
 });
