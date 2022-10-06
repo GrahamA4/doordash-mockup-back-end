@@ -1,6 +1,10 @@
 import express from 'express';
+import dotenv from 'dotenv';
+import Test from './controllers/auth.js';
+import crypto from 'crypto';
 
-const PORT = 3000;
+dotenv.config();
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.listen(PORT, () => {
@@ -8,5 +12,5 @@ app.listen(PORT, () => {
 });
 
 app.get('/', (req, res) => {
-  res.send('hello');
+  res.send({ test: 'yo', name: 'hello' });
 });
