@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import usersRoutes from './userRoute';
+import usersRoutes from './userRoute.js';
 
 //variable on which to perform router methods
 const router = Router();

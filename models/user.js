@@ -1,7 +1,11 @@
-import { Mongoose } from 'mongoose';
-import isEmail from 'validator/lib/isEmail';
+import mongoose from 'mongoose';
+import isEmail from 'validator/lib/isEmail.js';
+import dotenv from 'dotenv';
 
-const UserSchema = new Mongoose.Schema(
+dotenv.config();
+const Schema = mongoose.Schema;
+
+const User = new Schema(
   {
     firstName: {
       type: String,
@@ -18,9 +22,14 @@ const UserSchema = new Mongoose.Schema(
         validator: isEmail
       }
     },
-    password_digest: { type: String, required: true, select: false }
+    password_digest: {
+      type: String,
+      required: true,
+      select: false
+    }
   },
+
   { timestamps: true }
 );
 
-export default UserSchema;
+export default mongoose.model('users', User);

@@ -2,23 +2,22 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 
-import User from '../models/user';
-
+import User from '../models/user.js';
 dotenv.config();
-const SALT_ROUNDS = Number(process.env.SALT_ROUNDS);
-const TOKEN_KEY = process.env.TOKEN_KEY === 'production';
 
+const SALT_ROUNDS = Number(process.env.SALT_ROUNDS);
+const TOKEN_KEY = process.env.TOKEN_KEY;
 const today = new Date();
 const exp = new Date(today);
 exp.setDate(today.getDate() + 30);
 
 export const signUp = async (req, res) => {
   try {
-    const { firstname, lastname, email, pasword } = req.body;
-    const password_digest = await bcrypt.hash(password.SALT_ROUNDS);
+    const { firstName, lastName, email, password } = req.body;
+    const password_digest = await bcrypt.hash(password, SALT_ROUNDS);
     const user = new User({
-      firstname,
-      lastname,
+      firstName,
+      lastName,
       email,
       password_digest
     });
@@ -27,8 +26,8 @@ export const signUp = async (req, res) => {
 
     const payload = {
       id: user._id,
-      firstname: user.firstname,
-      lastname: user.lastname,
+      firstName: user.firstName,
+      lastName: user.lastName,
       email: user.email,
       exp: parseInt(exp.getTime() / 1000)
     };
@@ -50,8 +49,8 @@ export const signIn = async (req, res) => {
     if (await bcrypt.compare(password, user.password_digest)) {
       const payload = {
         id: user._id,
-        firstname: user.firstname,
-        lastname: user.lastname,
+        firstName: user.firstName,
+        lastName: user.lastName,
         email: user.email,
         exp: parseInt(exp.getTime() / 1000)
       };
