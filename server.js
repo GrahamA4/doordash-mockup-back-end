@@ -7,15 +7,11 @@ import db from './db/connection.js';
 // import crypto from 'crypto';
 
 dotenv.config();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 const app = express();
 
 app.use(express.json());
 app.use('/api', routes);
-
-app.listen(PORT, () => {
-  console.log(`express Server listening on port ${PORT}`);
-});
 
 app.get('/', (req, res) => {
   res.send({ test: 'yo', name: 'hello' });
@@ -24,3 +20,11 @@ app.get('/', (req, res) => {
 db.on('connected', () => {
   console.log('Connected to MongoDB!');
 });
+
+app.listen(PORT, () =>
+  process.env.NODE_ENV === 'production'
+    ? console.log(`Express server running in production on port ${PORT}\n\n`)
+    : console.log(
+        `Express server running in development on: http://localhost:${PORT}`
+      )
+);

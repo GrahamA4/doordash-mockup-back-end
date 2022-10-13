@@ -1,10 +1,9 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-const local_DB_Name = 'usersDB';
 
 dotenv.config();
 
-let MONGODB_URI = process.env.PROD_MONGODB;
+let MONGODB_URI = process.env.MONGODB_URI;
 
 mongoose.set('returnOriginal', false);
 
