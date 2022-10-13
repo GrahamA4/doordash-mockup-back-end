@@ -28,7 +28,6 @@ const User = new Schema(
       select: false
     }
   },
-
   { timestamps: true }
 );
 
