@@ -3,12 +3,12 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-let MONGODB_URI = process.env.MONGODB_URI;
+let PROD_MONGODB = process.env.PROD_MONGODB;
 
 mongoose.set('returnOriginal', false);
 
 mongoose
-  .connect(MONGODB_URI, {
+  .connect(PROD_MONGODB, {
     useUnifiedTopology: true,
     useNewUrlParser: true
   })
