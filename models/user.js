@@ -3,7 +3,7 @@ import isEmail from 'validator/lib/isEmail.js';
 import dotenv from 'dotenv';
 
 dotenv.config();
-const Schema = mongoose.Schema();
+const Schema = mongoose.Schema;
 
 const User = new Schema(
   {
