@@ -13,7 +13,6 @@ mongoose
     useUnifiedTopology: true,
     useNewUrlParser: true
   })
-  .then(console.log('connected'))
   .catch((error) =>
     console.error('Error connecting to MongoDB', error.message)
   );
