@@ -3,9 +3,6 @@ import dotenv from 'dotenv';
 import routes from './routes/index.js';
 import db from './db/connection.js';
 
-// import Test from './controllers/auth';
-// import crypto from 'crypto';
-
 dotenv.config();
 const PORT = process.env.PORT;
 const app = express();

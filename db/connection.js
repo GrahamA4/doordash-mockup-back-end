@@ -1,17 +1,19 @@
 import mongoose from 'mongoose';
+
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-let PROD_MONGODB = process.env.PROD_MONGODB;
+let MONGODB_URI = process.env.PROD_MONGODB;
 
 mongoose.set('returnOriginal', false);
 
 mongoose
-  .connect(PROD_MONGODB, {
+  .connect(MONGODB_URI, {
     useUnifiedTopology: true,
     useNewUrlParser: true
   })
+  .then(console.log('connected'))
   .catch((error) =>
     console.error('Error connecting to MongoDB', error.message)
   );
