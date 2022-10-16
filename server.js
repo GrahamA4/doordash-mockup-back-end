@@ -11,7 +11,7 @@ app.use(express.json());
 app.use('/api', routes);
 
 app.get('/', (req, res) => {
-  res.send({ test: 'yo', name: 'hello' });
+  res.send('Server Up And Running');
 });
 
 db.on('connected', () => {
