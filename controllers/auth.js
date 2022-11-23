@@ -6,7 +6,7 @@ import User from '../models/user.js';
 dotenv.config();
 
 const SALT_ROUNDS = Number(process.env.SALT_ROUNDS);
-const TOKEN_KEY = process.env.TOKEN_KEY;
+const TOKEN_KEY = process.env.JWT_SECRET_KEY;
 const today = new Date();
 const exp = new Date(today);
 exp.setDate(today.getDate() + 30);
