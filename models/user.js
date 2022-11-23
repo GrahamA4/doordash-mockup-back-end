@@ -3,9 +3,7 @@ import isEmail from 'validator/lib/isEmail.js';
 import dotenv from 'dotenv';
 
 dotenv.config();
-const Schema = mongoose.Schema;
-
-const User = new Schema(
+const Schema = new mongoose.Schema(
   {
     firstName: {
       type: String,
@@ -31,4 +29,6 @@ const User = new Schema(
   { timestamps: true }
 );
 
-export default mongoose.model('users', User);
+const User = mongoose.model('users', Schema);
+
+export default User;
