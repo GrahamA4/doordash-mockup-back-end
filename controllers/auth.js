@@ -22,7 +22,7 @@ export const signUp = async (req, res) => {
       password_digest
     });
 
-    await user.save().then(() => console.log('working'));
+    await user.insertOne().then(() => console.log('working'));
 
     const payload = {
       id: user._id,
