@@ -21,7 +21,8 @@ export const signUp = async (req, res) => {
       email,
       password_digest
     });
-    let newUser = await user.save().then(() => console.log('working'));
+
+    await user.save().then(() => console.log('working'));
 
     const payload = {
       id: user._id,

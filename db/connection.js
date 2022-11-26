@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-let MONGODB_URI = process.env.PROD_MONGODB;
+let MONGODB_URI = `${process.env.PROD_MONGODB}`;
 
 mongoose.set('returnOriginal', false);
 
