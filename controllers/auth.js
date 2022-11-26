@@ -14,7 +14,6 @@ exp.setDate(today.getDate() + 30);
 export const signUp = async (req, res) => {
   try {
     const { firstName, lastName, email, password } = req.body;
-    console.log({ firstName, lastName, email, password });
     const password_digest = await bcrypt.hash(password, SALT_ROUNDS);
     const user = new User({
       firstName,
