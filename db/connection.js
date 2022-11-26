@@ -7,6 +7,7 @@ let MONGODB_URI = process.env.PROD_MONGODB;
 
 mongoose
   .connect(MONGODB_URI)
+  .then(() => console.log('connected successfully'))
   .catch((error) =>
     console.error('Error connecting to MongoDB', error.message)
   );
