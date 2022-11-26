@@ -6,10 +6,8 @@ dotenv.config();
 
 let MONGODB_URI = `${process.env.PROD_MONGODB}`;
 
-mongoose.set('returnOriginal', false);
-
 mongoose
-  .connect(MONGODB_URI)
+  .connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true })
   .catch((error) =>
     console.error('Error connecting to MongoDB', error.message)
   );
