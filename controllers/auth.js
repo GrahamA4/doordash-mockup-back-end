@@ -21,8 +21,7 @@ export const signUp = async (req, res) => {
       email,
       password_digest
     });
-
-    user.save();
+    await user.save();
 
     const payload = {
       id: user._id,
@@ -94,4 +93,3 @@ export const getUser = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-export const changePassword = async (req, res) => {};
