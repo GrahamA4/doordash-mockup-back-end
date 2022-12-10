@@ -22,7 +22,6 @@ export const signUp = async (req, res) => {
       password_digest
     });
 
-    console.log(user);
     await user.save().then(() => console.log('working'));
 
     const payload = {
