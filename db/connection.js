@@ -1,12 +1,10 @@
 import mongoose from 'mongoose';
-
 import dotenv from 'dotenv';
 
 dotenv.config();
-let MONGODB_URI = process.env.PROD_MONGODB;
 
 mongoose
-  .connect(MONGODB_URI)
+  .connect(process.env.PROD_MONGODB)
   .catch((error) =>
     console.error('Error connecting to MongoDB', error.message)
   );
