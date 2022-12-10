@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 let MONGODB_URI = process.env.PROD_MONGODB;
-
+console.log(MONGODB_URI);
 mongoose
   .connect(MONGODB_URI)
   .then(() => console.log('connected successfully'))
