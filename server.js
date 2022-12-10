@@ -17,7 +17,6 @@ app.get('/', (req, res) => {
 
 db.on('connected', () => {
   console.log('Connected to MongoDB!');
-  console.log(process.env.TOKEN_KEY);
 });
 
 app.listen(PORT, () =>
