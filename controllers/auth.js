@@ -1,8 +1,8 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-
 import User from '../models/user.js';
+
 dotenv.config();
 
 const SALT_ROUNDS = Number(process.env.SALT_ROUNDS);
