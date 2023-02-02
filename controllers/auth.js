@@ -44,7 +44,7 @@ export const signIn = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email: email }).select(
-      'username email password_digest'
+      'firstName lastName email password_digest'
     );
     if (await bcrypt.compare(password, user.password_digest)) {
       const payload = {
@@ -81,10 +81,10 @@ export const verify = async (req, res) => {
 
 export const getUser = async (req, res) => {
   try {
-    const { username } = req.params;
-    const user_info = await User.findOne({ username: username }).select(
-      'username email'
-    );
+    const { email } = req.params;
+    const user_info = await User.findOne({
+      email: email
+    }).select('firstName lastName email');
     if (user_info) {
       return res.json(user_info);
     }
